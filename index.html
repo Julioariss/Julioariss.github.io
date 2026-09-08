@@ -333,6 +333,26 @@ details summary:hover{color:var(--c1)}
   .actcap p{font-size:.9rem}
 }
 
+/* ---- desbordes de grilla: 1fr no encoge bajo el ancho minimo del contenido ---- */
+.stage-ui{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+.daily .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.pgrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.plans{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.plist{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.bento{grid-template-columns:repeat(6,minmax(0,1fr))}
+.ledger{grid-template-columns:repeat(4,minmax(0,1fr))}
+.stage-ui>*,.daily .wrap>*,.pgrid>*,.plans>*,.plist>*,.bento>*,.ledger>*{min-width:0}
+h1,h2,h3,p,.lead,.trust,.pq{max-width:100%;overflow-wrap:break-word}
+.lead,.trust{max-width:min(34rem,100%)}
+/* la barra en movil: los botones a la derecha aunque los enlaces esten ocultos */
+@media(max-width:760px){nav .wrap>.tbtn{margin-left:auto}}
+@media(max-width:900px){
+  .daily .wrap,.pgrid,.plans,.plist{grid-template-columns:minmax(0,1fr)}
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:860px){.stage-ui{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:700px){.ledger{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 </style>
 
 <script>
