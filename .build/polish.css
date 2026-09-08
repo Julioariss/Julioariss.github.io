@@ -134,3 +134,8 @@ h1,h2,h3,p,.lead,.trust,.pq{max-width:100%;overflow-wrap:break-word}
 .actcap .cap{position:absolute;left:24px;right:24px;bottom:5vh;margin:0 auto;max-width:46rem}
 @media(max-width:860px){.actcap{min-height:290px}.actcap .cap{bottom:4vh}}
 @media(max-height:620px){.actcap{min-height:190px}.actcap h2{font-size:1.35rem}.actcap p{display:none}}
+/* Hero: los 4 sellos caben en una sola linea */
+.chips{gap:7px}
+.chips span{font-size:.6rem;letter-spacing:.1em;padding:5px 9px;gap:6px;white-space:nowrap}
+.chips i{width:5px;height:5px}
+@media(max-width:1180px){.chips span{font-size:.58rem;padding:5px 8px}}
