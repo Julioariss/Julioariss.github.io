@@ -4,7 +4,7 @@ import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 R = lambda p: open('.build/' + p).read()
 
-head = R('head.html').replace('</style>', R('extra.css') + '</style>')
+head = R('head.html').replace('/*POLISH*/', R('extra.css') + '\n' + R('polish.css'))
 body = R('body.html').replace('{{BADGE}}', R('uri1.txt'))
 
 lang = '''<script>

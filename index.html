@@ -221,6 +221,91 @@ nav .wrap .lang{margin-left:0}
 :root[data-theme="light"] .shotframe img.d{display:none}
 :root:not([data-theme="light"]) .shotframe img.l{display:none}
 .shotframe figcaption{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);text-align:center}
+
+/* ================= PASADA DE DISEÑO =================
+   1. ritmo de superficies  2. bloques de tinta como anclas de contraste
+   3. tarjetas con estructura real  4. sin lavado rosa en el modo claro   */
+
+/* --- anclas bajo la barra fija --- */
+section[id]{scroll-margin-top:78px}
+
+/* --- ritmo: la pagina alterna dos superficies, no una sola --- */
+:root{--surf:#0A0F18}
+:root[data-theme="light"]{--surf:#FFFFFF}
+#system{background:var(--bg)}
+.portrait{background:var(--surf)}
+.daily{background:var(--bg)}
+#pricing,#faq{background:var(--surf)}
+#pricing{padding-top:88px;border-top:1px solid var(--line)}
+#faq{padding-top:0}
+
+/* --- BLOQUE DE TINTA: el contraste que le faltaba al modo claro --- */
+.inkblock{
+  --panel:#131A24; --panel2:#18202B; --line:#232E3B; --line2:#33404F;
+  --ink:#EAF1F7; --ink2:#A6B6C6; --ink3:#7B8B9B;
+  background:#080D14; color:var(--ink);
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+:root[data-theme="light"] .inkblock{
+  --panel:#1E1B23; --panel2:#26222C; --line:#302B36; --line2:#413B48;
+  --ink:#FAFAF8; --ink2:#C7C2CC; --ink3:#948E9A;
+  background:#141216}
+.inkblock h2,.inkblock h3{color:var(--ink)}
+.inkblock .lead,.inkblock p{color:var(--ink2)}
+
+/* --- sin lavado rosa: los degradados de seccion se vuelven neutros --- */
+.daily{background-image:none}
+.portrait{background-image:none}
+:root[data-theme="light"] .portrait{background:linear-gradient(180deg,#FFFFFF,#F7F5F2)}
+.fin{background-image:none}
+
+/* --- BENTO: estructura, no solo color --- */
+.b{position:relative;overflow:hidden;border-radius:20px;
+   transition:transform .18s cubic-bezier(.2,.7,.3,1),border-color .18s,box-shadow .18s}
+.b::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--k);opacity:.75}
+.b .dot{opacity:.10;filter:blur(34px)}
+.b .k{display:inline-flex;align-items:center;gap:7px}
+.b .k::before{content:"";width:5px;height:5px;border-radius:1px;background:var(--k);transform:rotate(45deg)}
+:root:not([data-theme="light"]) .b{box-shadow:inset 0 1px 0 rgba(255,255,255,.045)}
+:root:not([data-theme="light"]) .b:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 22px 44px -30px rgba(0,0,0,.9)}
+:root[data-theme="light"] .b{background:var(--panel);border-color:#E7E4E0;
+   box-shadow:0 1px 2px rgba(20,18,22,.05),0 14px 30px -26px rgba(20,18,22,.35)}
+:root[data-theme="light"] .b:hover{box-shadow:0 2px 4px rgba(20,18,22,.06),0 24px 46px -28px rgba(20,18,22,.42)}
+:root[data-theme="light"] .b .dot{opacity:.13}
+
+/* --- LEDGER de privacidad dentro del bloque de tinta --- */
+#privacy .ledger div{background:var(--panel);border-color:var(--line);position:relative;overflow:hidden}
+#privacy .ledger div::after{content:"";position:absolute;inset:auto 0 0 0;height:2px;background:var(--k);opacity:.65}
+#privacy .plist div{border-top-color:var(--line)}
+
+/* --- PRECIOS: la recomendada se nota sin gritar --- */
+.plan{border-radius:20px}
+.plan.hi{--k:var(--c1)}
+:root[data-theme="light"] .plan{background:#fff;border-color:#E7E4E0;box-shadow:0 1px 2px rgba(20,18,22,.05),0 16px 34px -28px rgba(20,18,22,.35)}
+:root[data-theme="light"] .plan.hi{background:#fff;border-color:color-mix(in srgb,var(--c1) 45%,#E7E4E0);box-shadow:0 2px 6px rgba(230,0,35,.07),0 22px 44px -28px rgba(230,0,35,.30)}
+.plan.hi::after{content:attr(data-tag);position:absolute;top:18px;right:18px;
+  font-family:"JetBrains Mono",monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--c1);border:1px solid color-mix(in srgb,var(--c1) 45%,transparent);border-radius:999px;padding:4px 10px}
+
+/* --- CIERRE: bloque de tinta, no degradado pastel --- */
+.fin{padding:104px 0}
+.fin .eyebrow{color:var(--c1)}
+.fin .btn.primary{background:var(--c1);color:#fff;padding:15px 26px;font-size:1rem;border-radius:14px;
+  box-shadow:0 14px 34px -14px color-mix(in srgb,var(--c1) 70%,transparent)}
+.fin .btn.primary:hover{filter:brightness(1.06)}
+.fin .fine{margin-top:18px;font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+
+/* --- detalles finos --- */
+nav::after{height:2px}
+.readout,.paper{border-radius:18px}
+details summary:hover{color:var(--c1)}
+.ledger div{transition:transform .18s} .ledger div:hover{transform:translateY(-2px)}
+.chips span{transition:border-color .18s} .chips span:hover{border-color:var(--k)}
+::selection{background:color-mix(in srgb,var(--c1) 30%,transparent)}
+:root[data-theme="light"] footer{background:#F1EFEC}
+:root[data-theme="light"] .btn.primary{background:#141216;color:#FAFAF8}
+:root[data-theme="light"] .lang,:root[data-theme="light"] .tbtn{border-color:#D4D1CB}
+@media(max-width:700px){.fin{padding:72px 0}section[id]{scroll-margin-top:66px}}
+
 </style>
 
 <script>
@@ -376,7 +461,7 @@ nav .wrap .lang{margin-left:0}
   </figure>
 </div></section>
 
-<section id="privacy"><div class="wrap">
+<section id="privacy" class="inkblock"><div class="wrap">
   <div class="sec-head">
     <div class="eyebrow" style="--accent:var(--c3)"><span class="en">Privacy, by design</span><span class="es">Privacidad por diseño</span></div>
     <h2><span class="en">The most personal thing you own stays yours.</span><span class="es">Lo más personal que tienes sigue siendo tuyo.</span></h2>
@@ -407,7 +492,7 @@ nav .wrap .lang{margin-left:0}
         <li><span class="en">Full Mail parity · every iPhone with iOS 26</span><span class="es">Paridad total con Mail · todo iPhone con iOS 26</span></li>
       </ul>
       <p class="note"><span class="en">No ads, ever.</span><span class="es">Sin publicidad, nunca.</span></p></div>
-    <div class="plan hi"><div class="name">OrbMail Premium</div><div class="price">US$1.99<small> /<span class="en">month</span><span class="es">mes</span></small> <small style="margin-left:10px">· US$19.99 /<span class="en">year</span><span class="es">año</span></small></div>
+    <div class="plan hi" data-tag="Recommended"><div class="name">OrbMail Premium</div><div class="price">US$1.99<small> /<span class="en">month</span><span class="es">mes</span></small> <small style="margin-left:10px">· US$19.99 /<span class="en">year</span><span class="es">año</span></small></div>
       <ul>
         <li><span class="en">The Daily — three editions, illustrated, PDF</span><span class="es">El Diario — tres ediciones, ilustrado, PDF</span></li>
         <li><span class="en">Narrator and Siri newscast</span><span class="es">Locutor y noticiero por Siri</span></li>
@@ -426,10 +511,11 @@ nav .wrap .lang{margin-left:0}
   <details><summary><span class="en">Which languages?</span><span class="es">¿En qué idiomas?</span></summary><p><span class="en">Interface in 8 languages; the Daily and narrator follow yours.</span><span class="es">Interfaz en 8 idiomas; el Diario y el locutor siguen el tuyo.</span></p></details>
 </div></section>
 
-<section class="fin"><div class="wrap">
+<section class="fin inkblock"><div class="wrap">
   <div class="eyebrow"><span class="en">OrbMail for iPhone</span><span class="es">OrbMail para iPhone</span></div>
   <h2 style="margin:14px auto 0;max-width:16ch"><span class="en">From overwhelmed to at ease.</span><span class="es">De abrumado a tranquilo.</span></h2>
   <div class="cta"><a class="btn primary" href="https://apps.apple.com/app/id6806903576" target="_blank" rel="noopener"><span class="en">Download on the App Store</span><span class="es">Descargar en el App Store</span></a></div>
+  <p class="fine"><span class="en">Free forever as a mail app · 30 days of everything · No account</span><span class="es">Gratis para siempre como app de correo · 30 días de todo · Sin cuenta</span></p>
 </div></section>
 
 <footer><div class="wrap">
