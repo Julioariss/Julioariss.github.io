@@ -353,6 +353,12 @@ h1,h2,h3,p,.lead,.trust,.pq{max-width:100%;overflow-wrap:break-word}
 @media(max-width:860px){.stage-ui{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:700px){.ledger{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+/* el velo del rotulo debe cubrir SIEMPRE el alto del texto, no solo el borde */
+.actcap{min-height:250px;display:flex;align-items:flex-end;justify-content:center}
+.actcap .cap{position:absolute;left:24px;right:24px;bottom:5vh;margin:0 auto;max-width:46rem}
+@media(max-width:860px){.actcap{min-height:290px}.actcap .cap{bottom:4vh}}
+@media(max-height:620px){.actcap{min-height:190px}.actcap h2{font-size:1.35rem}.actcap p{display:none}}
+
 </style>
 
 <script>
