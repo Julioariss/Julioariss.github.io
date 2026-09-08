@@ -6,7 +6,8 @@
     if(light){root.setAttribute('data-theme','light')} else {root.removeAttribute('data-theme')}
     if(window.__orbSkin)try{window.__orbSkin(light)}catch(e){}
   }
-  function saved(){ try{return localStorage.getItem(KEY)}catch(e){return null} }
+  var qs=(location.search.match(/[?&]theme=(light|dark)/)||[])[1]||null;
+  function saved(){ if(qs)return qs; try{return localStorage.getItem(KEY)}catch(e){return null} }
   function isLight(){ var s=saved(); return s ? s==='light' : mq.matches; }
   paint(isLight());
   /* si el usuario no eligio a mano, el sitio sigue en vivo el modo del sistema (macOS, Windows, iOS...) */
