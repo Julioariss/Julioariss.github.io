@@ -51,7 +51,7 @@
     addEventListener('pointermove',function(e){mx=(e.clientX/innerWidth-.5)*2;my=(e.clientY/innerHeight-.5)*2},{passive:true});
   }
   function resize(){var r=canvas.getBoundingClientRect();renderer.setSize(r.width,r.height,false);camera.aspect=r.width/r.height;camera.updateProjectionMatrix();
-    var narrow=r.width<860;phones.forEach(function(p){p.userData.s=narrow?.62:.95;p.userData.ox=narrow?0:1.55;p.userData.oy=narrow?-.55:0})}
+    var narrow=r.width<860,tiny=r.width<560;phones.forEach(function(p){p.userData.s=tiny?.5:(narrow?.56:.95);p.userData.ox=narrow?0:1.55;p.userData.oy=narrow?-.92:0})}
   var stage=document.querySelector('.stage'),copy=document.getElementById('heroCopy'),caps=document.querySelectorAll('.actcap .cap'),t0=performance.now(),cur=-1;
   function render(now){
     var t=now-t0,ent=reduce?1:Math.min(1,t/1600);ent=1-Math.pow(1-ent,3);

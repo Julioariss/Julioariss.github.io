@@ -319,6 +319,20 @@ details summary:hover{color:var(--c1)}
 .plan.hi{background:radial-gradient(120% 90% at 100% 0%,color-mix(in srgb,var(--c1) 12%,transparent),transparent 60%),var(--panel);
   border-color:color-mix(in srgb,var(--c1) 42%,var(--line))}
 
+/* ---- el rotulo del escenario nunca se cruza con el telefono ---- */
+.actcap{bottom:0;height:auto;padding:56px 24px 5vh;
+  background:linear-gradient(180deg,transparent 0%,color-mix(in srgb,var(--bg) 72%,transparent) 38%,var(--bg) 74%)}
+.actcap .cap{position:absolute;left:24px;right:24px;bottom:5vh}
+.actcap h2{font-size:clamp(1.5rem,2.8vw,2.3rem)}
+.actcap p{max-width:34rem;margin-left:auto;margin-right:auto}
+@media(max-width:860px){
+  .stage-ui{padding-top:24px;align-content:start}
+  .stage-ui .copy{max-width:36rem}
+  .actcap{padding:72px 20px 4vh}
+  .actcap .cap{bottom:4vh}
+  .actcap p{font-size:.9rem}
+}
+
 </style>
 
 <script>
@@ -590,7 +604,7 @@ details summary:hover{color:var(--c1)}
     addEventListener('pointermove',function(e){mx=(e.clientX/innerWidth-.5)*2;my=(e.clientY/innerHeight-.5)*2},{passive:true});
   }
   function resize(){var r=canvas.getBoundingClientRect();renderer.setSize(r.width,r.height,false);camera.aspect=r.width/r.height;camera.updateProjectionMatrix();
-    var narrow=r.width<860;phones.forEach(function(p){p.userData.s=narrow?.62:.95;p.userData.ox=narrow?0:1.55;p.userData.oy=narrow?-.55:0})}
+    var narrow=r.width<860,tiny=r.width<560;phones.forEach(function(p){p.userData.s=tiny?.5:(narrow?.56:.95);p.userData.ox=narrow?0:1.55;p.userData.oy=narrow?-.92:0})}
   var stage=document.querySelector('.stage'),copy=document.getElementById('heroCopy'),caps=document.querySelectorAll('.actcap .cap'),t0=performance.now(),cur=-1;
   function render(now){
     var t=now-t0,ent=reduce?1:Math.min(1,t/1600);ent=1-Math.pow(1-ent,3);
