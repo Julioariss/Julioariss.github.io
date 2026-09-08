@@ -306,6 +306,19 @@ details summary:hover{color:var(--c1)}
 :root[data-theme="light"] .lang,:root[data-theme="light"] .tbtn{border-color:#D4D1CB}
 @media(max-width:700px){.fin{padding:72px 0}section[id]{scroll-margin-top:66px}}
 
+/* ---- correcciones tras revisar los dos temas renderizados ---- */
+/* el bloque de tinta usa siempre la paleta luminosa: sobre negro, los tonos oscuros no leen */
+.inkblock{--c1:#4FD8F0;--c2:#FF7A66;--c3:#4ADE9B;--c4:#A78BFA;--c5:#F7B93E;--c6:#5B9DFF}
+:root[data-theme="light"] .inkblock{--c1:#FF4D6A;--c2:#FF8A73;--c3:#4ADE9B;--c4:#B49BFF;--c5:#F7B93E;--c6:#6FA8FF}
+/* en oscuro el bloque debe ser el valor MAS profundo para que se lea como plancha */
+:root:not([data-theme="light"]) .inkblock{background:#04070C;border-color:#141C26}
+/* el boton del cierre nunca puede quedar tinta sobre tinta */
+:root[data-theme="light"] .fin .btn.primary{background:var(--c1);color:#141216}
+.fin .btn.primary{color:#04070C;font-weight:800}
+/* premium: un solo acento, el de la marca del tema */
+.plan.hi{background:radial-gradient(120% 90% at 100% 0%,color-mix(in srgb,var(--c1) 12%,transparent),transparent 60%),var(--panel);
+  border-color:color-mix(in srgb,var(--c1) 42%,var(--line))}
+
 </style>
 
 <script>
