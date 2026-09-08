@@ -191,6 +191,11 @@ nav .wrap .lang{margin-left:0}
 :root:not([data-theme="light"]) .phone.fallback img.l{display:none}
 :root[data-theme="light"] .brand img.d{display:none}
 :root:not([data-theme="light"]) .brand img.l{display:none}
+.b.full{grid-column:span 6;display:grid;grid-template-columns:auto 1fr;gap:6px 34px;align-items:baseline}
+.b.full .k{grid-row:1;grid-column:1}
+.b.full h3{grid-row:1;grid-column:2;margin-top:0}
+.b.full p{grid-row:2;grid-column:2;margin-top:2px}
+@media(max-width:900px){.b.full{grid-column:span 2;grid-template-columns:1fr}.b.full .k,.b.full h3,.b.full p{grid-column:1;grid-row:auto}.b.full h3{margin-top:16px}}
 </style>
 
 <script>
@@ -309,7 +314,7 @@ nav .wrap .lang{margin-left:0}
       <div class="k">✦</div>
       <h3><span class="en">Summarize, reply, remind</span><span class="es">Resume, responde, recuerda</span></h3>
       <p><span class="en">One tap: the gist, three replies in your tone, the commitment saved.</span><span class="es">Un toque: el resumen, tres respuestas en tu tono, el compromiso guardado.</span></p></div>
-    <div class="b" style="--k:var(--c3)"><div class="dot"></div>
+    <div class="b full" style="--k:var(--c3)"><div class="dot"></div>
       <div class="k">Mail</div>
       <h3><span class="en">Any account. Direct.</span><span class="es">Cualquier cuenta. Directo.</span></h3>
       <p><span class="en">Gmail, iCloud, Outlook, Yahoo, IMAP. Tracking pixels blocked.</span><span class="es">Gmail, iCloud, Outlook, Yahoo, IMAP. Píxeles de rastreo bloqueados.</span></p></div>
