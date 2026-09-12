@@ -139,3 +139,6 @@ h1,h2,h3,p,.lead,.trust,.pq{max-width:100%;overflow-wrap:break-word}
 .chips span{font-size:.6rem;letter-spacing:.1em;padding:5px 9px;gap:6px;white-space:nowrap}
 .chips i{width:5px;height:5px}
 @media(max-width:1180px){.chips span{font-size:.58rem;padding:5px 8px}}
+
+/* precios: tarjeta única centrada (app gratis) */
+#pricing .plans{grid-template-columns:minmax(0,560px);justify-content:center}
