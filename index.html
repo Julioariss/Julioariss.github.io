@@ -187,17 +187,17 @@ nav .wrap .lang{margin-left:0}
    border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .pgrid{display:grid;grid-template-columns:1fr 1fr;align-items:center;max-width:1180px;margin:0 auto;padding:64px 24px}
 .pshot{display:grid;place-items:center;position:relative}
-.pshot img{width:min(430px,86%);aspect-ratio:62/100;object-fit:cover;object-position:50% 16%;display:block;border-radius:26px;
+.pshot img,.pshot video{width:min(430px,86%);aspect-ratio:9/16;object-fit:cover;object-position:50% 50%;display:block;border-radius:26px;background:#06090F;
    box-shadow:0 40px 90px -34px rgba(0,0,0,.55), 0 0 0 1px color-mix(in srgb,var(--line2) 60%,transparent)}
-:root[data-theme="light"] .pshot img{box-shadow:0 30px 70px -34px rgba(20,18,22,.30), 0 0 0 1px var(--line)}
-:root[data-theme="light"] .pshot img.d{display:none}
-:root:not([data-theme="light"]) .pshot img.l{display:none}
+:root[data-theme="light"] .pshot img,:root[data-theme="light"] .pshot video{box-shadow:0 30px 70px -34px rgba(20,18,22,.30), 0 0 0 1px var(--line)}
+:root[data-theme="light"] .pshot .d{display:none}
+:root:not([data-theme="light"]) .pshot .l{display:none}
 .pcopy{display:flex;flex-direction:column;justify-content:center;gap:16px;padding:0 8px 0 44px}
 .pcopy h2{font-size:clamp(1.7rem,2.8vw,2.5rem)}
 .pcopy .lead{font-size:1rem}
 .pq{font-family:Fraunces,Georgia,serif;font-size:1.05rem;font-style:italic;color:var(--ink2);border-left:2px solid var(--c1);padding-left:16px;line-height:1.45}
 .pmeta{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
-@media(max-width:900px){.pgrid{grid-template-columns:1fr;gap:30px;padding:44px 24px 52px}.pcopy{padding:0}.pshot img{width:min(360px,78%)}}
+@media(max-width:900px){.pgrid{grid-template-columns:1fr;gap:30px;padding:44px 24px 52px}.pcopy{padding:0}.pshot img,.pshot video{width:min(360px,78%)}}
 /* el escenario 3D en claro: menos peso visual */
 :root[data-theme="light"] .phone{background:#EFEDE9;border-color:#D9D6D0;box-shadow:0 30px 70px -34px rgba(20,18,22,.35),0 0 100px -30px var(--glow)}
 :root[data-theme="light"] .b{box-shadow:0 1px 2px rgba(20,18,22,.04)}
@@ -497,8 +497,8 @@ h1,h2,h3,p,.lead,.trust,.pq{max-width:100%;overflow-wrap:break-word}
 <section class="portrait" aria-label="OrbMail">
   <div class="pgrid">
     <div class="pshot">
-      <img class="d" src="img/dark-hero.jpg" alt="" loading="lazy" decoding="async">
-      <img class="l" src="img/light-hero.jpg" alt="" loading="lazy" decoding="async">
+      <video class="d" src="img/man-dark.mp4" poster="img/man-dark.jpg" autoplay muted loop playsinline preload="metadata"></video>
+      <video class="l" src="img/woman-light.mp4" poster="img/woman-light.jpg" autoplay muted loop playsinline preload="metadata"></video>
     </div>
     <div class="pcopy">
       <div class="pmeta"><span class="en">On the way home · 18:00 edition</span><span class="es">Camino a casa · edición de las 18:00</span></div>
