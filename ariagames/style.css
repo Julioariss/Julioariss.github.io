@@ -27,3 +27,5 @@ section.doc{padding:60px 0 90px}.doc .wrap{max-width:760px}
 .doc h1{font-size:clamp(32px,5vw,46px)}.doc h2{margin-top:36px;font-size:22px}.doc p,.doc li{color:var(--tx2)}
 footer{border-top:1px solid var(--line);padding:30px 0;color:var(--tx3);font-size:13px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
+
+.logo{display:block;width:min(560px,86vw);margin:0 auto 6px;mix-blend-mode:multiply}
